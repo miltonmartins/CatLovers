@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.martins.milton.catlovers.ui.cats.CatsViewModel" />
+
+    </data>
+
+    <FrameLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.cats.CatsFragment">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/sr_cats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:onRefreshListener="@{viewmodel::refresh}"
+            app:refreshing="@{viewmodel.loading}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_cats"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:items="@{viewmodel.cats}" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </FrameLayout>
+</layout>
