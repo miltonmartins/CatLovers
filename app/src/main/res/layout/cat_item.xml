@@ -17,31 +17,48 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="2dp">
 
         <ImageView
             android:id="@+id/image_cat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/cat"
-            app:imageUrl="@{cat.photoUrl}"
+            app:imageUrl="@{cat.images.get(0).photoUrl}"
+            app:layout_constrainedHeight="true"
+            app:layout_constrainedWidth="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+
             tools:src="@drawable/cat" />
+
+        <View
+            android:id="@+id/view_text_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#7F000000"
+            app:layout_constraintBottom_toBottomOf="@id/image_cat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{cat.title}"
+            android:maxLines="1"
+            android:text="@{cat.description}"
             android:textColor="@color/white"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/image_cat"
-            app:layout_constraintEnd_toEndOf="@id/image_cat"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/view_text_container"
+            app:layout_constraintEnd_toEndOf="@id/view_text_container"
+            app:layout_constraintStart_toStartOf="@id/view_text_container"
+            app:layout_constraintTop_toTopOf="@+id/view_text_container"
             tools:text="@string/cat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

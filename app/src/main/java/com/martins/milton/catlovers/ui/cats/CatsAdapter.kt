@@ -43,7 +43,7 @@ class CatsAdapter(private val viewModel: CatsViewModel) :
 
 class CatsDiffCallback : DiffUtil.ItemCallback<Cat>() {
     override fun areItemsTheSame(oldItem: Cat, newItem: Cat): Boolean {
-        return oldItem.photoUrl == newItem.photoUrl
+        return oldItem.description == newItem.description
     }
 
     override fun areContentsTheSame(oldItem: Cat, newItem: Cat): Boolean {

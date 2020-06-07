@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import com.martins.milton.catlovers.R
 import com.martins.milton.catlovers.databinding.FragmentCatsBinding
 
 class CatsFragment : Fragment() {
@@ -42,7 +41,7 @@ class CatsFragment : Fragment() {
             viewDataBinding.rvCats.adapter = catsAdapter
             viewDataBinding.rvCats.layoutManager = GridLayoutManager(context, 4)
         } else {
-            Log.e("ViewModel", "ViewModel not initialized when attempting to set up adapter.")
+            Log.e(tag, "ViewModel is null")
         }
     }
 }

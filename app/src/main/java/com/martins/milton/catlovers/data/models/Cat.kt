@@ -1,3 +1,8 @@
 package com.martins.milton.catlovers.data.models
 
-data class Cat(var title: String, var photoUrl: String)
+import com.google.gson.annotations.SerializedName
+
+data class Cat(
+    @SerializedName("title") var description: String,
+    @SerializedName("images") var images: List<Image>
+)
